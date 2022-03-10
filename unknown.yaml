@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+ name: my-pod
+ labels:
+   application-ID: my-app
+   version: version-nr
+   stage: dev
+   release: release-nr
+   owner: team-kube

@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: pod
+metadata:
+  name: mypvc
+spec:
+  nodeSelector:
+    type: sharan
+  containers:
+  - image: nginx
+    name: nginx
+    volumeMounts: 
+    - mountPath: /root/Eks
+      name: Eks
+ # volumePath: /home/ubuntu/volumes
+   # name: myfile
+  volumes:
+  - name: sharan-eks-volume
+    hostPath:
+      path: /home/ubuntu/volumes
+      type: Directory
+    sharan-eks-volume:
+      volumeID: vol-0dd8c9503677761d2	
+      fsType: ext4

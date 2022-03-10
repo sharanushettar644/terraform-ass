@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: aws-auth
+  namespace: kube-system
+data:
+  mapRoles: |
+    - rolearn: arn:aws:iam::883195043912:role/sharan_eks
+      username: system:node: ip-192-168-248-122.us-west-2.compute.internal
+      groups:
+        - system:bootstrappers
+        - system:nodes
