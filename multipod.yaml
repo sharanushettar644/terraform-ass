@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: multipod
+  labels:
+    app: Multi-pod
+  namespace: sharan
+spec:
+  containers:
+  - name: alpha
+    image: nginx
+    ports:
+      - containerPort: 80
+  - name: beta
+    image: busybox
+    command:
+    - sleep
+    - "4800"
