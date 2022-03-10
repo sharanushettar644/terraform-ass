@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: sharan
+  labels:
+    type: amazonEBS
+spec:
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteOnce
+  awsElasticBlockStore:
+    volumeID: vol-0dd8c9503677761d2
+    fsType: ext4
+  storageClassName: gp2

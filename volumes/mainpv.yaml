@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sharan
+  labels:
+    app: ubuntu
+  namespace: sharan
+spec:
+  selector:
+    matchLabels:
+      app: ubuntu
+  template:
+    metadata:
+      labels:
+        app: ubuntu
+    spec:
+      containers:
+      - name: ubuntu
+        image: ubuntu
+        volumeMounts:
+        - mountPath: /pv/data-analytics
+          name: sharan
+      volumes:
+      - name: sharan
+        persistentVolumeClaim:
+          claimName: sharan

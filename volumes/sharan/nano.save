@@ -1,0 +1,26 @@
+: apps/v1
+kind: Deployment
+metadata:
+  name: sharan
+  labels:
+    app: nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+  spec:
+    containers:
+      - name: nginx
+        image: nginx
+        volumeMounts:
+          - mountPath: /root/Eks
+            name: sharan-data
+    volumes:
+    - name: sharan-data
+      persistentVolumeClaim:
+        claimName: sharan
